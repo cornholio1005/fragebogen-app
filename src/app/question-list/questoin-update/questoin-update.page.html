@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>questoin-update</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">questoin-update</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm ="6" offset-sm = "3">
+        <ion-list  class="backgroundColorSecondary">
+
+            <ion-card *ngIf = "!this.isLoading"
+             class="labeltCard"
+             size-sm = "6"
+             offset-sm = "3">
+             <ion-label class = "listLabel">
+              <p ></p>
+              <p class = "listLabel"></p>
+              <p class = "listLabel"></p>
+              <p class = "listLabel"></p>
+            </ion-label>
+            </ion-card>
+
+            <form #f = "ngForm">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title>Questoin</ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+
+                  <ion-item>
+                    <ion-label position="floating" >Question Text</ion-label>
+                    <ion-input
+                      type="text"
+                      ngModel
+                      name="question"
+                      required
+                      question
+                      #questionCtrl="ngModel"
+                      ></ion-input>
+                  </ion-item>
+
+                  <ion-item *ngIf = "!questionCtrl.valid && questionCtrl.touched" lines = "none">
+                    <ion-label>Please write a question</ion-label>
+                  </ion-item>
+
+                </ion-card-content>
+              </ion-card>
+            </form>
+            <!--ion-button
+             size = "full"
+             color = "light"
+            (click) = "register(f)" [disabled] = "!f.valid">Update</ion-button-->
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

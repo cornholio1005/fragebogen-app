@@ -1,0 +1,100 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>signup-form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]= "true">
+  <form #f="ngForm" (ngSubmit)= "onSubmit(f)">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+          <ion-card>
+            <ion-card-header> <ion-title>Sign Up</ion-title></ion-card-header>
+            <ion-list>
+              <ion-item>
+                <ion-label position="floating">Name</ion-label>
+                <ion-input
+                  type="text"
+                  ngModel
+                  name="name"
+                  required
+                  personName
+                  #personNameCtrl="ngModel"
+                  ></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Surname</ion-label>
+                <ion-input
+                  type="text"
+                  ngModel
+                  name="surname"
+                  required
+                  surname
+                  #surnameCtrl="ngModel"
+                  ></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">E-mail</ion-label>
+                <ion-input
+                  type="email"
+                  ngModel
+                  name="email"
+                  required
+                  email
+                  #emailCtrl="ngModel"
+                  ></ion-input>
+                  <p *ngIf= "!emailCtrl.valid && emailCtrl.touched">Should be a valid email addres</p>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Password</ion-label>
+                <ion-input
+                  type="password"
+                  ngModel
+                  name="password"
+                  required
+                  minlength="6"
+                  #passwordCtrl="ngModel"
+                  ></ion-input>
+                  <p *ngIf= "!passwordCtrl.valid && passwordCtrl.touched">Please give a password of at least 6 charachters</p>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Repeat Password</ion-label>
+                <ion-input
+                  type="password"
+                  ngModel
+                  name="repeatPassword"
+                  required
+                  minlength="6"
+                  #repeatPasswordCtrl="ngModel"
+                  ></ion-input>
+                  <p *ngIf= "!repeatPasswordCtrl.valid && repeatPasswordCtrl.touched">Please repeat password</p>
+              </ion-item>
+            </ion-list>
+          </ion-card>
+
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col ion-col size-md="6" offset-md="3">
+          <ion-card>
+            <ion-button type="button"
+            color="primary"
+            fill="clear"
+            expand="block"
+            (click)= "goToLogin()"
+            >Switch to login</ion-button>
+
+            <ion-button
+            type ="submit"
+            color="primary"
+            expand="block"
+            [disabled]= "!f.valid"
+            >Sign Up</ion-button>
+          </ion-card>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </form>
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Participants</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-md="6" offset-md="3">
+        <ion-list>
+          <ion-item *ngFor ="let participant of participants" [routerLink] = "['./', participant.id]">
+            <ion-label >
+              <p class="listLabel">{{participant.name}} {{participant.surname}}</p>
+            </ion-label>
+          </ion-item>
+      </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
